@@ -18,7 +18,7 @@ _rclick(x,y,delay=100) {
    sleep %delay%
 }
 
-f13::
+f14::
 	send {f2}
 
 	; select extensions tab
@@ -44,6 +44,20 @@ f13::
 	;_click(1580,43)
 
 return
+
+; refresh test page
+f13::
+	send {f2}
+
+	; select test.html tab
+	_click(-500,23)	
+
+	; refresh
+	_click(-712, 62)	
+
+	send !{tab}
+return
+
 
 f15::
 	send {f2}
@@ -75,7 +89,7 @@ return
 Click
 return
 
-:*:clo::
+:*:clg::
 send console.log('');{left 3}
 return
 

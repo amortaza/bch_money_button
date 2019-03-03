@@ -1,3 +1,4 @@
+/*
 $(document).ready(function(){
     let bg = chrome.extension.getBackgroundPage();
     console.log(bg.Addresses);
@@ -96,4 +97,4 @@ function setupHandlers() {
         $('#backup').hide();
     });
 }
-
+*/

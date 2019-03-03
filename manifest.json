@@ -7,12 +7,23 @@
 
     "content_scripts": [
         {
-            "matches": [
-                "<all_urls>"
+            "matches": ["<all_urls>"],
+
+            "css": [
+                "lib/hilite/hilite.css"
             ],
 
-            "js": ["lib/jquery-3.3.1.slim.min.js", "content.js"]
+            "js": [
+                "lib/jquery-3.3.1.min.js", 
+                "lib/jquery-ui.min.js", 
+                "lib/hilite/hilite.js", 
+                "content.js"
+            ]
         }
+    ],
+
+    "web_accessible_resources": [         
+        "lib/hilite/bch.png"
     ],
 
     "background": {
@@ -21,7 +32,7 @@
 
     "browser_action": {
         "default_icon": "img/bch.png",
-        "default_popup": "popup.html",
+        "*default_popup": "popup.html",
         "default_title": "BCH is Money!"
     },
 

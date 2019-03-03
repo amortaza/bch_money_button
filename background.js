@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener( onMessage );
+/*chrome.runtime.onMessage.addListener( onMessage );
 
 function onMessage( msg, sender, response ) {
 
@@ -11,7 +11,7 @@ function onMessage( msg, sender, response ) {
 
             console.log('is user ' + is_user);
 
-            alert('from bg');
+            //alert('from bg');
 
             response(is_user);
         });
@@ -20,7 +20,7 @@ function onMessage( msg, sender, response ) {
     }
 }
 
-
+*/
 
 
 

@@ -8,7 +8,7 @@ body { padding: 6em;}
     border:1px solid orange;
     z-index: 100;
     
-    background-image: url("bch.png");
+    background-image: url("chrome-extension://nldmgdmhemjllgogonilfflggfohffmp/lib/hilite/bch.png");
     background-size: 2em 2em;
     background-repeat: no-repeat;
     padding-left:2.5em;
@@ -104,4 +104,12 @@ body { padding: 6em;}
     padding-right:0.3em;
     padding-top:0.1em;
     padding-bottom:0em;            
+}
+
+.AcE_bCh_ExT_close {
+    color: black;
+    font-size:1.3em;
+    font-family: courier;
+    font-weight: bold;
+    padding-right:3px;
 }

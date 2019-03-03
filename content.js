@@ -1,19 +1,25 @@
-function isUserEvent(callback) {
+var elem1 = document.getElementById("one");
+
+AcE_bCh_ExT_create_bch_money_button(elem1, "pork loin", 143.23);
+
+
+/*function isUserEvent(callback) {
     if (!chrome.runtime) return;
 
     chrome.runtime.sendMessage('is-user-gesture', function(is_user) {
         is_user = is_user === true;
         callback(is_user);
     });
-}
+}*/
 
-
+/*
 document.body.onclick = function() {
     console.log('body onclick');
      isUserEvent(function(is_user) {
-         alert(is_user ? 'Triggered by user' : 'Spoofed event');
+         //alert(is_user ? 'Triggered by user' : 'Spoofed event');
      });
 };
+*/
 
 /*chrome.runtime.onMessage.addListener( onMessage );
 
