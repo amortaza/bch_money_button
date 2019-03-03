@@ -33,6 +33,9 @@ f14::
 	; refresh
 	_click(-712, 62)	
 
+	; press send button
+	_click(-653, 306)	
+
 	; press button
 	;_click(-100, 53)	
 

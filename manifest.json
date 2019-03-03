@@ -17,6 +17,7 @@
                 "lib/jquery-3.3.1.min.js", 
                 "lib/jquery-ui.min.js", 
                 "lib/hilite/hilite.js", 
+                "lib/address_parser.js", 
                 "content.js"
             ]
         }
@@ -32,7 +33,7 @@
 
     "browser_action": {
         "default_icon": "img/bch.png",
-        "*default_popup": "popup.html",
+        "default_popup": "popup.html",
         "default_title": "BCH is Money!"
     },
 

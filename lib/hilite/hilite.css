@@ -1,9 +1,10 @@
 body { padding: 6em;}
 
 .AcE_bCh_ExT_overlay {
+    font-family:verdana;
     font-size:0.7em;
     position: absolute;
-    opacity: 0.5;
+    opacity: 1;
     background-color:yellow;
     border:1px solid orange;
     z-index: 100;
@@ -34,7 +35,7 @@ body { padding: 6em;}
     background-color:rgb(255, 255, 204);
     z-index: 101;
 
-    width:19em;
+    width:23em;
     height:4.5em;
 
     cursor: move;
@@ -73,17 +74,24 @@ body { padding: 6em;}
 }
 
 .AcE_bCh_ExT_paylay .payment {
-    text-align: right;
+    overflow: hidden;
 }
 
-.AcE_bCh_ExT_paylay .payment .bch {
-    text-align: right;
-    margin-right:1.1em;
+.AcE_bCh_ExT_paylay .payment .left {
+    float:left;
+}
+
+.AcE_bCh_ExT_paylay .payment .right {
+    float:right;
+}
+
+.AcE_bCh_ExT_paylay .payment .left .bch {
+    margin-right:1.0em;
     font-size:0.85em;
     font-family:vardana;
 }
 
-.AcE_bCh_ExT_paylay .payment .usd {
+.AcE_bCh_ExT_paylay .payment .left .usd {
     margin-left:0.3em;
     margin-right:0.8em;
     font-size:0.85em;
@@ -97,6 +105,7 @@ body { padding: 6em;}
     padding-left:1.5em;
     padding-right:1.5em;
 }
+
 .AcE_bCh_ExT_paylay input {
     font-size:0.7em;
     width:5.5em;

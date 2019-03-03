@@ -1,26 +1,10 @@
-/*chrome.runtime.onMessage.addListener( onMessage );
+chrome.runtime.onMessage.addListener( onMessage );
 
 function onMessage( msg, sender, response ) {
 
-    console.log('background just received: ' + msg);
-
-    if (msg === 'is-user-gesture') {
-
-        chrome.permissions.request({}, function() {
-            var is_user = !chrome.runtime.lastError;
-
-            console.log('is user ' + is_user);
-
-            //alert('from bg');
-
-            response(is_user);
-        });
-
-        return true; // Async
-    }
+    console.log('background just received');
+    console.log(msg);
 }
-
-*/
 
 
 
