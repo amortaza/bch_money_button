@@ -34,7 +34,7 @@ f14::
 	_click(-712, 62)	
 
 	; press send button
-	_click(-653, 306)	
+	;_click(-653, 306)	
 
 	; press button
 	;_click(-100, 53)	
@@ -46,6 +46,7 @@ f14::
 	; console
 	;_click(1580,43)
 
+	send !{tab}
 return
 
 ; refresh test page

@@ -1,5 +1,5 @@
 body {
-  width: 47em;
+  width: 30em;
   height: 27em;
   background-color: #eaffe0;
 }
@@ -16,38 +16,9 @@ input {
   color:rgba(0,0,0,0.65);
 }
 
-.button-pay {
-  width:5em;
-  height:3em;
-  position: relative;
-  top:-0.35em;
-  margin-left:0.1em;
-}
-
 .c-a {
   font-size: 1.25em;
   margin-bottom:3px;
-}
-
-.address {
-  font-size: 1.55em;
-  margin-bottom:10px;
-  /*font-family: "Lucida Console";*/
-  font-weight: bold;
-  color:rgba(0,0,0,0.65);
-}
-
-.button-close {
-  margin-top:1em;
-  font-size: 1.25em;
-  width:5em;
-  height:2em;
-}
-
-.qrcode {
-  width:22em;
-  height:22em;
-  margin-top:1em;
 }
 
 .dollar {
@@ -102,10 +73,3 @@ input {
      text-decoration:underline;
      margin-left:1.25em;
 }
-
-.nothing-found {
-  font-size:1.5em;
-  margin-top:2em;
-  margin-bottom:2em;  
-}
-

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="refill-wallet.css">    
+    <link rel="stylesheet" href="backup-wallet.css">    
+    <link rel="stylesheet" href="popup.css">    
+  </head>
+
+  <body>
+
+    <div class="header">
+
+      <span class="wallet-label">wallet</span> <span class="wallet-amount">$450.33</span>
+      <br/><span id="buttonOpenBackup" class="fake-anchor">backup wallet</span>
+      <span id="buttonOpenRefill" class="fake-anchor">refill wallet</span><br/>
+        
+      <div id="backup" class="div-backup-wallet">
+        <div class="bip39">witch collapse practice feed shame open despair creek road again ice least witch collapse practice feed shame open despair creek road again ice least</div>
+          <button id="buttonCloseBackup" class="button-close-backup">Close</button>
+        </div>
+      </div>
+
+      <div id="refill">
+        <div class="qrcode-div-container">
+          <div id="qrcode" class="qrcode"></div>
+        </div>
+        <button id="buttonCloseRefill" class="button-close-refill">Close</button>
+      </div>
+
+      
+
+    </div>
+
+    <script src="../lib/jquery-3.3.1.min.js"></script>
+    <script src="../lib/qrcode.min.js"></script>
+    <script src="popup.js"></script>
+
+  </body>
+</html>

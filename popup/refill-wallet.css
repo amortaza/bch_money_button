@@ -1,0 +1,19 @@
+.qrcode-div-container {
+	overflow: hidden;
+}
+
+.qrcode {
+  	width:200px;
+  	height:200px;
+  	margin-top:1em;
+  	float:right;
+}
+
+.button-close-refill {
+	margin-top:1em;
+  	font-size: 1.25em;
+  	width:5em;
+  	height:2em;
+  	float:right;
+}
+
