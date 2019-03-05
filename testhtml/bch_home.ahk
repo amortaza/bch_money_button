@@ -1,19 +1,19 @@
-_move(x,y,delay=100) {
+_move(x,y,delay=200) {
    CoordMode, Mouse, Screen
-   MouseMove, %x%, %y%, 10
+   MouseMove, %x%, %y%, 5
    sleep %delay%
 }
 
-_click(x,y,delay=100) {
+_click(x,y,delay=200) {
    CoordMode, Mouse, Screen
-   MouseMove, %x%, %y%, 10
+   MouseMove, %x%, %y%, 5
    Click
    sleep %delay%
 }
 
-_rclick(x,y,delay=100) {
+_rclick(x,y,delay=200) {
    CoordMode, Mouse, Screen
-   MouseMove, %x%, %y%, 10
+   MouseMove, %x%, %y%, 5
    Click, right
    sleep %delay%
 }
@@ -47,6 +47,8 @@ f14::
 	;_click(1580,43)
 
 	send !{tab}
+
+	_click(32,300)
 return
 
 ; refresh test page
@@ -60,6 +62,8 @@ f13::
 	_click(-712, 62)	
 
 	send !{tab}
+
+	_click(32,300)
 return
 
 
