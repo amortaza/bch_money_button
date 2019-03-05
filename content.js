@@ -1,5 +1,7 @@
-forEachAddress( function(element, bch_address) {
-    AcE_bCh_ExT_create_bch_money_button(element, bch_address, 143.23);
+forEachAddress( function(elements, bch_address) {
+
+    for ( var i = 0; i < elements.length; i++ ) 
+        AcE_bCh_ExT_create_bch_money_button(elements[ i ], bch_address, 143.23);
 });
 
 window.addEventListener("message", onSendBCH_Pressed);
