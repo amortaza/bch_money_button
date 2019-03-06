@@ -24,7 +24,9 @@
     ],
 
     "web_accessible_resources": [         
-        "lib/hilite/bch.png"
+        "lib/hilite/bch.png",
+        "lib/hilite/hilite.css",
+        "frame.html"
     ],
 
     "background": {

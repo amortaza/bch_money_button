@@ -3,7 +3,6 @@ body { padding: 6em;}
 .AcE_bCh_ExT_overlay {
     font-family:verdana;
     font-size:0.7em;
-    position: absolute;
     opacity: 1;
     background-color:yellow;
     border:1px solid orange;
@@ -12,33 +11,26 @@ body { padding: 6em;}
     background-image: url("chrome-extension://nldmgdmhemjllgogonilfflggfohffmp/lib/hilite/bch.png");
     background-size: 2em 2em;
     background-repeat: no-repeat;
+    background-position: 2 1;
     padding-left:2.5em;
     padding-right:0.5em;
     padding-top:0.45em;
+    padding-bottom:0.45em;
     cursor:pointer;
 }
 
-.AcE_bCh_ExT_hilite {
-    font-size:0.7em;
-    position: absolute;
-    opacity: 0.99;
-    background-color:yellow;
-    border:1px solid orange;
-    z-index: -1;
-}
-
 .AcE_bCh_ExT_paylay {
-    font-size:1.1em;
+    font-size:1.3em;
 
     border:1px solid green;
-    position: absolute;
     background-color:rgb(255, 255, 204);
-    z-index: 101;
 
     width:23em;
     height:4.5em;
 
-    cursor: move;
+    left:0;
+    top:0;
+    position:absolute;
 }
 
 .AcE_bCh_ExT_paylay .body {
