@@ -48,7 +48,7 @@ f14::
 
 	send !{tab}
 
-	;_click(32,200)
+	_click(32,200)
 return
 
 ; refresh test page

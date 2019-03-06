@@ -1,0 +1,95 @@
+.AcE_bCh_ExT_paylay {
+    font-size:1.3em;
+
+    border:1px solid green;
+    background-color:rgb(255, 255, 204);
+
+    width:23em;
+    height:4.5em;
+
+    left:0;
+    top:0;
+    position:absolute;
+}
+
+.AcE_bCh_ExT_paylay .body {
+    padding:0.2em;
+}
+
+.AcE_bCh_ExT_paylay .body .addressbox {
+    margin-bottom: 0.5em;
+}
+
+.AcE_bCh_ExT_paylay .body .addressbox .address {
+    font-size:0.7em;
+    font-family: verdana;
+    border:0em solid red;
+    background-color: black;
+    color:lightgreen;
+    padding:0.2em;
+}
+
+.AcE_bCh_ExT_paylay .header {
+    font-family: times;
+    font-size:0.6em;
+    padding:0.2em;
+    color:yellow;
+    background-color: rgb(204, 153, 0);
+    text-align: right;
+}
+
+.AcE_bCh_ExT_paylay .header span {
+    cursor:pointer;
+    margin-left:17em;
+    transform:scale(1.5);
+}
+
+.AcE_bCh_ExT_paylay .payment {
+    overflow: hidden;
+}
+
+.AcE_bCh_ExT_paylay .payment .left {
+    float:left;
+}
+
+.AcE_bCh_ExT_paylay .payment .right {
+    float:right;
+}
+
+.AcE_bCh_ExT_paylay .payment .left .bch {
+    margin-right:1.0em;
+    font-size:0.85em;
+    font-family:vardana;
+}
+
+.AcE_bCh_ExT_paylay .payment .left .usd {
+    margin-left:0.3em;
+    margin-right:0.8em;
+    font-size:0.85em;
+    font-family:vardana;
+}
+
+.AcE_bCh_ExT_paylay button {
+    font-size:0.65em;
+    height:1.9em;
+    margin-left:0.5em;
+    padding-left:1.5em;
+    padding-right:1.5em;
+}
+
+.AcE_bCh_ExT_paylay input {
+    font-size:0.7em;
+    width:5.5em;
+    padding-left:0.3em;
+    padding-right:0.3em;
+    padding-top:0.1em;
+    padding-bottom:0em;            
+}
+
+.AcE_bCh_ExT_close {
+    color: black;
+    font-size:1.3em;
+    font-family: courier;
+    font-weight: bold;
+    padding-right:3px;
+}
