@@ -49,6 +49,10 @@ f14::
 	send !{tab}
 
 	;_click(32,200)
+
+	; editbox
+	_click(-683,442)
+	send 23
 return
 
 ; refresh test page
