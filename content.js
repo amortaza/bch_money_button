@@ -1,4 +1,3 @@
-
 forEachAddress( function(elements, bch_address) {
 
     for ( var i = 0; i < elements.length; i++ ) 
