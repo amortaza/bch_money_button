@@ -24,13 +24,12 @@
     ],
 
     "web_accessible_resources": [         
-        "lib/hilite/bch.png",
-        "lib/iframe/iframe.css",
-        "lib/iframe/iframe.html"
+        "lib/hilite/bch.png"
     ],
 
     "background": {
-        "scripts": ["background.js"]
+        "scripts": ["lib/jquery-3.3.1.min.js", 
+                    "node_background.js"]
     },
 
     "browser_action": {
@@ -39,5 +38,5 @@
         "default_title": "BCH is Money!"
     },
 
-    "permissions": ["tabs"]
+    "permissions": ["tabs", "storage"]
 }
