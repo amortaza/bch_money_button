@@ -86,6 +86,16 @@ function onMessage( msg, sender, response ) {
         console.log('Background just received "load_wallet" message.');
         loadWallet();
     }
+    else if (msg.type == 'send_bch') {
+        var sats = parseFloat(msg.amount) * 100000000;
+
+        WALLET.send(msg.bch_address, sats, function() {
+            loadWallet();
+        }, 
+        function(err) {
+            alert('There was an error sending ' + msg.amount + ' BCH to ' + msg.bch_address + ', see "' + err + '".');
+        });
+    }
 }
 
 
