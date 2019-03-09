@@ -16,6 +16,7 @@ $(document).ready(function() {
     $('#refill').hide();
 
     if (background.BCH_PRICE == 0) {
+        $('.bch-price').text('BCH Price unknown - cannot continue.');
         alert('I do not know what the going rate for BCH is - cannot continue.');
         return;
     }

@@ -6,25 +6,33 @@ BCH_PRICE = 0;
 WALLET;
 WALLET_LOAD_STATE = '';
 
-var WORDS;
+var WALLET_INDEX = 0;
 
 getBCH_Price();
-getWallet();
+initWallet();
 
-function getWallet() {
+function initWallet() {
 
     chrome.storage.sync.get('wallet-words', function(result) {
-        WORDS = result['wallet-words'];
+        var words = result['wallet-words'];
 
-        if (!WORDS) {
-            WORDS = WALLET.generateMnemonic();
+        if (!words) {
+            words = WALLET.generateMnemonic();
 
-            chrome.storage.sync.set({'wallet-words': WORDS}, function() {
+            chrome.storage.sync.set({'wallet-words': words}, function() {
                 console.log('New wallet words generated and stored.');
             });
         } 
 
-        loadWallet();
+        chrome.storage.sync.get('wallet-index', function(result) {
+            WALLET_INDEX = parseInt( result['wallet-index'] );
+
+            if (isNaN(WALLET_INDEX)) WALLET_INDEX = 0;
+
+            console.log('Read wallet index as ' + WALLET_INDEX);
+
+            loadWallet(words);
+        });
     });
 }
 
@@ -84,13 +92,13 @@ function onMessage( msg, sender, response ) {
 
     if (msg.type == 'load_wallet') {
         console.log('Background just received "load_wallet" message.');
-        loadWallet();
+        reloadWallet();
     }
     else if (msg.type == 'send_bch') {
         var sats = parseFloat(msg.amount) * 100000000;
 
         WALLET.send(msg.bch_address, sats, function() {
-            loadWallet();
+            reloadWallet();
         }, 
         function(err) {
             alert('There was an error sending ' + msg.amount + ' BCH to ' + msg.bch_address + ', see "' + err + '".');
@@ -98,20 +106,49 @@ function onMessage( msg, sender, response ) {
     }
 }
 
+function loadWallet(words) {
 
-function loadWallet() {
     WALLET_LOAD_STATE = 'loading';
 
     console.log('Wallet load state is now "loading"');
 
     // we have the words
-    WALLET.load( WORDS, 0, 
+    WALLET.load( words, WALLET_INDEX, 
         function(first_change_utxo_index) {
             WALLET_LOAD_STATE = 'loaded';
+            setWalletIndex(first_change_utxo_index);
             console.log('Wallet load state is now "loaded"');
         }, 
         function(error) {
             console.log('There was a problem loading the wallet.  See ' + e);
         }
     );
+}
+
+function reloadWallet() {
+
+    WALLET_LOAD_STATE = 'loading';
+
+    console.log('Wallet load state is now "loading"');
+
+    // we have the words
+    WALLET.reload( 
+        function(first_change_utxo_index) {
+            WALLET_LOAD_STATE = 'loaded';
+            setWalletIndex(first_change_utxo_index);
+            console.log('Wallet load state is now "loaded"');
+        }, 
+        function(error) {
+            console.log('There was a problem loading the wallet.  See ' + e);
+        }
+    );
+}
+
+function setWalletIndex(index) {
+
+    WALLET_INDEX = index;
+
+    chrome.storage.sync.set({'wallet-index': index}, function() {
+        console.log('Wallet index stored as ' + index);
+    });
 }
