@@ -1,75 +1,61 @@
 body {
-  width: 30em;
-  height: 27em;
+  width: 37em;
+  height: 30.9em;
   background-color: #eaffe0;
-}
-
-input {
-  width: 4.5em;
-  height: 0.36em;
-  padding-left:0.3em;
-  padding-top:0.7em;
-  padding-bottom:0.5em;
-  font-size: 1.95em;
-  font-family: "Lucida Console";
-  font-weight: bold;
-  color:rgba(0,0,0,0.65);
-}
-
-.c-a {
-  font-size: 1.25em;
-  margin-bottom:3px;
-}
-
-.dollar {
-  font-size: 2.865em;
-  margin-right:0.1em;
-  position:relative;
-  top:0.09em;
-  font-weight: default;
-  font-family: "arial";
-  color:rgba(0,0,0,0.7);
-}
-
-.block {
-  margin-top:2em;
-  border:1px solid #86af49;
-  position:relative;
-  left:0.1em;
-  padding:0.7em;
-  background-color:#e3eaa7;
-  text-align:right;
 }
 
 .header {
   margin-top:0.1em;
+  padding:0.7em;
+
   border:1px solid #86af49;
+
   position:relative;
   left:0.1em;
-  padding:0.7em;
+
   background-color:#d5e1df;
 
-  text-align: right;
+  
+
+  overflow: hidden;
 }
 
-.wallet-label {
-  font-size: 1.5em;
-  font-family: "Helvetica";
-  font-weight: default;
-  color:rgba(0,0,0,0.7);
-  margin-right:0.2em;
+.wallet {
+  float:right;
 }
 
-.wallet-amount {
-  font-size: 2.5em;
-  font-family: "Helvetica";
-  font-weight: bold;
-  color:rgba(0,0,0,0.65);
+  .wallet-label {
+    font-size: 1.3em;
+    font-family: "Helvetica";
+    font-weight: default;
+    color:rgba(0,0,0,0.7);
+    margin-right:0.5em;
+  }
+
+  .wallet-amount {
+    font-size: 2.5em;
+    font-family: "Helvetica";
+    font-weight: bold;
+    color:rgba(0,0,0,0.65);
+  }
+
+  .wallet-refill {
+    margin-left:1em;
+  }
+
+  .wallet-rescan {
+    margin-left:1em;
+  }
+
+.bch-price {
+  float:left;
+  font-size:1em;
+  font-family: "verdana";
 }
 
 .fake-anchor {
      cursor:pointer;
      color:blue;
-     text-decoration:underline;
-     margin-left:1.25em;
+     text-decoration:underline;     
 }
+

@@ -21,6 +21,7 @@ function onSendBCH_Pressed(event) {
     }
 
     var msg = {
+        type: 'send_bch',
         amount: data.amount,
         bch_address: data.bch_address
     };
@@ -30,11 +31,4 @@ function onSendBCH_Pressed(event) {
     console.log('Sent message to background!');
     console.log(msg);
 }
-
-/*
-chrome.runtime.onMessage.addListener( onMessage );
-
-function onMessage( msg, sender, response ) {
-    console.log('Content received message: ' + msg);
-}*/
 

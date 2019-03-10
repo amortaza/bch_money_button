@@ -20,6 +20,8 @@ _rclick(x,y,delay=200) {
 
 f14::
 	send {f2}
+	; give browserfy time
+        sleep 100
 
 	; select extensions tab
 	_click(-685,23)	
@@ -36,7 +38,8 @@ f14::
 	; press send button
 	;_click(-653, 306)	
 
-	; press button
+	; press extension button
+        ;sleep 500
 	;_click(-100, 53)	
 
 	; inspect
@@ -46,9 +49,15 @@ f14::
 	; console
 	;_click(1580,43)
 
+
+	;_click(32,200)
+
+	; editbox
+	;_click(-683,442)
+	;send 23
+
 	send !{tab}
 
-	_click(32,300)
 return
 
 ; refresh test page
@@ -66,13 +75,29 @@ f13::
 	_click(32,300)
 return
 
+inspect() {
+	_rclick(-184,272)
+	_click(-119,317)
+	_click(-1350,94)
+}
+
+backup() {
+	_click(-323,150)
+}
 
 f15::
 	send {f2}
 
 	; press button
 	_click(-100, 53)
+	sleep 100
 	_click(-100, 53)	
+
+	; press refill 
+	;_click(-154,154)
+
+	;inspect()
+        backup()
 
 	send !{tab}
 return
@@ -87,9 +112,8 @@ return
 return
 
 
-:*:cex::
-send ^a{del}
-send chrome extension page
+:*:brd::
+send border:1px solid red;
 return
 
 
@@ -99,6 +123,11 @@ return
 
 :*:clg::
 send console.log('');{left 3}
+return
+
+
+:*:stl::
+send style="" {left 2}
 return
 
 

@@ -1,39 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="refill-wallet.css">    
-    <link rel="stylesheet" href="backup-wallet.css">    
-    <link rel="stylesheet" href="popup.css">    
-  </head>
+                            
+    <head>
+        <link rel="stylesheet" href="wallet-refill.css">        
+        <link rel="stylesheet" href="wallet-backup.css">        
+        <link rel="stylesheet" href="spinner.css">         
+        <link rel="stylesheet" href="popup.css">         
+    </head>
 
-  <body>
+    <body>
 
-    <div class="header">
+        <div class="header">
 
-      <span class="wallet-label">wallet</span> <span class="wallet-amount">$450.33</span>
-      <br/><span id="buttonOpenBackup" class="fake-anchor">backup wallet</span>
-      <span id="buttonOpenRefill" class="fake-anchor">refill wallet</span><br/>
-        
-      <div id="backup" class="div-backup-wallet">
-        <div class="bip39">witch collapse practice feed shame open despair creek road again ice least witch collapse practice feed shame open despair creek road again ice least</div>
-          <button id="buttonCloseBackup" class="button-close-backup">Close</button>
+            <div class="bch-price"></div>
+
+            <div class="wallet" >
+                <div style="overflow:hidden;margin-bottom:10px">
+                    <div style="overflow:hidden; float:right;" >
+                        <div class="wallet-label" style="float:left;" >wallet</div> 
+
+                        <div class="wallet-amount" style="float:left;">$</div>
+
+                        <div class="spinner" style="float:left; margin-top:10px;" >
+                          <div class="bounce1"></div>
+                          <div class="bounce2"></div>
+                          <div class="bounce3"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="text-align: right;">
+                    <span id="buttonOpenBackup" class="fake-anchor">backup wallet</span>
+                    <span id="buttonOpenRefill" class="fake-anchor wallet-refill">refill wallet</span>
+                    <span id="buttonRescanWallet" class="fake-anchor wallet-rescan">rescan wallet</span><br/>
+                </div>
+            </div>
+
         </div>
-      </div>
+                
+        <div id="backup" class="div-backup-wallet">
+            <div class="bip39">
+            </div>
 
-      <div id="refill">
-        <div class="qrcode-div-container">
-          <div id="qrcode" class="qrcode"></div>
+            <div class="backup-disclaimer">
+                Please note that the ability to reset the wallet words or to set custom wallet words has not been implemented.  
+                <br/> 
+                Feel free to the let the author know if you are interested in this feature.
+            </div>
+
+            <button id="buttonCloseBackup" class="button-close-backup">Hide</button>
+            
         </div>
-        <button id="buttonCloseRefill" class="button-close-refill">Close</button>
-      </div>
 
-      
+        <div id="refill">
+            <div class="qrcode-div-container">
+                <div id="qrcode" class="qrcode"></div>
+                <div class="qrcode-address"></div>
+            </div>
+            <button id="buttonCloseRefill" class="button-close-refill">Hide</button>
+        </div>
 
-    </div>
+        <script src="../lib/jquery-3.3.1.min.js"></script>
+        <script src="../lib/qrcode.min.js"></script>
+        <script src="popup.js"></script>
 
-    <script src="../lib/jquery-3.3.1.min.js"></script>
-    <script src="../lib/qrcode.min.js"></script>
-    <script src="popup.js"></script>
-
-  </body>
+    </body>
 </html>
