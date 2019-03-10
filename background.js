@@ -5,6 +5,7 @@ WALLET = new Wallet();
 BCH_PRICE = 0;
 WALLET;
 WALLET_LOAD_STATE = '';
+WALLET_WORDS = '';
 
 var WALLET_INDEX = 0;
 
@@ -112,6 +113,7 @@ function onMessage( msg, sender, response ) {
 
 function loadWallet(words) {
 
+    WALLET_WORDS = words;
     WALLET_LOAD_STATE = 'loading';
 
     console.log('Wallet load state is now "loading"');

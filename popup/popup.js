@@ -25,6 +25,8 @@ $(document).ready(function() {
 
     fetchWalletValue( function() {
 
+        $('.bip39').text(background.WALLET_WORDS);
+        
         setupHandlers();
 
         fetchNextQrCode();
