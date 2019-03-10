@@ -39,8 +39,8 @@ f14::
 	;_click(-653, 306)	
 
 	; press extension button
-        sleep 500
-	_click(-100, 53)	
+        ;sleep 500
+	;_click(-100, 53)	
 
 	; inspect
 	;_rclick(-419, 123)
