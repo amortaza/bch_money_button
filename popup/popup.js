@@ -21,7 +21,7 @@ $(document).ready(function() {
         return;
     }
 
-    $('.bch-price').text('BCH Price $' + background.BCH_PRICE);
+    $('.bch-price').text('BCH Price $' + background.BCH_PRICE.toFixed(0));
 
     fetchWalletValue( function() {
 

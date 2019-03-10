@@ -96,6 +96,10 @@ function onMessage( msg, sender, response ) {
     }
     else if (msg.type == 'send_bch') {
         var sats = parseFloat(msg.amount) * 100000000;
+        var dollars = parseFloat(msg.amount) * BCH_PRICE;
+        var confirm_msg = 'Confirm sending:\n' + msg.amount + ' BCH\nValued at $' + dollars.toFixed(2) + '\nTo ' + msg.bch_address;
+
+        if (!confirm(confirm_msg)) return;
 
         WALLET.send(msg.bch_address, sats, function() {
             reloadWallet();

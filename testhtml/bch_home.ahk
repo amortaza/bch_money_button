@@ -81,6 +81,10 @@ inspect() {
 	_click(-1350,94)
 }
 
+backup() {
+	_click(-323,150)
+}
+
 f15::
 	send {f2}
 
@@ -92,7 +96,8 @@ f15::
 	; press refill 
 	;_click(-154,154)
 
-	;inspect
+	;inspect()
+        backup()
 
 	send !{tab}
 return
