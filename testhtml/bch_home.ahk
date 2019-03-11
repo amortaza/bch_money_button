@@ -54,7 +54,7 @@ f14::
 	send {f2}
 
 	; give browserfy time
-    sleep 100
+    sleep 200
 
     refresh_extension()
 
@@ -81,21 +81,26 @@ f14::
 	;send 23
 
 	;refresh_purse()
-	refresh_youtube()
+	;refresh_youtube()
+	reload_test_page()
 
 	send !{tab}
 
 return
 
-; refresh test page
-f13::
-	send {f2}
-
+reload_test_page() {
 	; select test.html tab
 	_click(-500,23)	
 
 	; refresh
 	_click(-712, 62)	
+}
+
+; refresh test page
+f13::
+	send {f2}
+
+	reload_test_page()
 
 	send !{tab}
 

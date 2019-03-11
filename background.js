@@ -88,9 +88,6 @@ chrome.runtime.onMessage.addListener( onMessage );
 
 function onMessage( msg, sender, response ) {
 
-    console.log('background just received');
-    console.log(msg);
-
     if (msg.type == 'load_wallet') {
         console.log('Background just received "load_wallet" message.');
         reloadWallet();
@@ -108,6 +105,9 @@ function onMessage( msg, sender, response ) {
         function(err) {
             alert('There was an error sending ' + msg.amount + ' BCH to ' + msg.bch_address + ', see "' + err + '".');
         });
+    }
+    else if (msg.type == 'get-bch-price') {
+        response(BCH_PRICE);
     }
 }
 
