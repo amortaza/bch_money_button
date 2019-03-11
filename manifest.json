@@ -38,5 +38,5 @@
         "default_title": "BCH is Money!"
     },
 
-    "permissions": ["tabs", "storage"]
+    "permissions": ["activeTab", "storage"]
 }

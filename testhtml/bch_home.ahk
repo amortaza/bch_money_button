@@ -18,22 +18,47 @@ _rclick(x,y,delay=200) {
    sleep %delay%
 }
 
-f14::
-	send {f2}
-	; give browserfy time
-        sleep 100
-
-	; select extensions tab
-	_click(-685,23)	
-
-	; click refresh
-	_click(-295,425)	
-
-	; select a.html tab
+refresh_A_tab() {
+    ; select a.html tab
 	_click(-500,23)	
 
 	; refresh
 	_click(-712, 62)	
+}
+
+refresh_extension() {
+    ; select extensions tab
+	_click(-685,23)	
+
+	; click refresh
+	_click(-295,425)	
+}
+
+refresh_purse() {	
+	_click(27,111) ;select chrome
+	_click(187,13) ;select tab
+	_click(1309,128) ;select my orders
+	sleep 2000
+	_click(515,502) ;select order
+	sleep 3000
+	_click(1326,408) ;select complete order
+}
+
+refresh_youtube() {	
+	_click(27,111) ;select chrome
+	_click(187,13) ;select tab
+	_click(144,51) ;select refresh
+}
+
+f14::
+	send {f2}
+
+	; give browserfy time
+    sleep 100
+
+    refresh_extension()
+
+	;refresh_A_tab()
 
 	; press send button
 	;_click(-653, 306)	
@@ -49,12 +74,14 @@ f14::
 	; console
 	;_click(1580,43)
 
-
 	;_click(32,200)
 
 	; editbox
 	;_click(-683,442)
 	;send 23
+
+	;refresh_purse()
+	refresh_youtube()
 
 	send !{tab}
 
@@ -72,7 +99,7 @@ f13::
 
 	send !{tab}
 
-	_click(32,300)
+	;_click(32,300)
 return
 
 inspect() {
@@ -133,7 +160,7 @@ return
 
 
 
-:*:jp::
+:*:ljp::
 send console.log(JSON.stringify());{left 3}
 return
 
