@@ -47,10 +47,32 @@ body {
     margin-left:1em;
   }
 
-.bch-price {
+.upper-left {
   float:left;
+}
+
+.bch-price {
   font-size:1em;
   font-family: "verdana";
+}
+
+.disable-app {
+  margin-top:2.4em;
+  font-size:1em;
+
+  background-color: #cdd39a;
+  border:1px solid #acb291;
+
+  padding-left:0.1em;
+  padding-top:0.1em;
+  padding-right:0.4em;
+  padding-bottom:0.4em;
+}
+
+.disable-app input {
+  
+  position:relative;
+  top:0.1em;
 }
 
 .fake-anchor {

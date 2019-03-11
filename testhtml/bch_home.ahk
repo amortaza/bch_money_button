@@ -129,7 +129,7 @@ f15::
 	;_click(-154,154)
 
 	;inspect()
-        backup()
+;        backup()
 
 	send !{tab}
 return
