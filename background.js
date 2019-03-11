@@ -37,53 +37,6 @@ function initWallet() {
     });
 }
 
-function getBCH_Price() {
-    var xhttp = new XMLHttpRequest();
-
-    xhttp.onreadystatechange = function() {
-
-        if (this.readyState != 4) return;
-
-        if (this.status == 200) {
-            var data = JSON.parse(xhttp.responseText).data;
-
-            BCH_PRICE = parseFloat(data.rates.USD, 2);
-
-            if (isNaN(BCH_PRICE)) {
-                BCH_PRICE = 0;
-
-                alert('Read something funky for BCH price, see "' + data.rates.USD + '"');
-                onError();
-            } 
-            else {
-                console.log('Got the price as $' + BCH_PRICE);
-                // we got the price....but would like to update the price every hour
-                retryIn( 3600 );
-            }
-        } 
-        else {
-            onError();
-        }
-    };
-
-    xhttp.open("GET", "https://api.coinbase.com/v2/exchange-rates?currency=BCH", true);
-    xhttp.send();
-
-    function retryIn(seconds) {
-
-        window.setTimeout(function() {        
-            console.log('Getting BCH Price.');
-            getBCH_Price();
-        }, 1000 * seconds);
-    }
-
-    function onError() {
-        alert('BCH Money Button cannot determine current BCH price.  Trying again in a minute.');
-
-        retryIn(60);
-    }
-}
-
 chrome.runtime.onMessage.addListener( onMessage );
 
 function onMessage( msg, sender, response ) {
@@ -100,14 +53,35 @@ function onMessage( msg, sender, response ) {
         if (!confirm(confirm_msg)) return;
 
         WALLET.send(msg.bch_address, sats, function() {
+            notify('Sent $' + dollars.toFixed(2) + ' to ' + msg.bch_address, msg.amount + ' BCH');
             reloadWallet();
         }, 
         function(err) {
-            alert('There was an error sending ' + msg.amount + ' BCH to ' + msg.bch_address + ', see "' + err + '".');
+            var err2 = 'There was an error sending ' + msg.amount + ' BCH to ' + msg.bch_address + ', see "' + err + '".';
+            notify(err2);
+            alert(err2);
         });
     }
     else if (msg.type == 'get-bch-price') {
         response(BCH_PRICE);
+    }
+    else if (msg.type == 'notify') {
+        notify(msg.msg);
+    }
+}
+
+function notify(line1, line2) {
+
+    if (Notification.permission === "granted") {
+        new Notification(line1, {body: line2 || '', icon: 'img/bch.png'});
+    }
+    else if (Notification.permission !== 'denied') {
+
+        Notification.requestPermission(function (permission) {
+
+            if (permission === "granted") 
+                new Notification(line1, {body: line2 || '', icon: 'img/bch.png'});
+        });
     }
 }
 
@@ -157,4 +131,51 @@ function setWalletIndex(index) {
     chrome.storage.sync.set({'wallet-index': index}, function() {
         console.log('Wallet index stored as ' + index);
     });
+}
+
+function getBCH_Price() {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+
+        if (this.readyState != 4) return;
+
+        if (this.status == 200) {
+            var data = JSON.parse(xhttp.responseText).data;
+
+            BCH_PRICE = parseFloat(data.rates.USD, 2);
+
+            if (isNaN(BCH_PRICE)) {
+                BCH_PRICE = 0;
+
+                alert('Read something funky for BCH price, see "' + data.rates.USD + '"');
+                onError();
+            } 
+            else {
+                console.log('Got the price as $' + BCH_PRICE);
+                // we got the price....but would like to update the price every hour
+                retryIn( 3600 );
+            }
+        } 
+        else {
+            onError();
+        }
+    };
+
+    xhttp.open("GET", "https://api.coinbase.com/v2/exchange-rates?currency=BCH", true);
+    xhttp.send();
+
+    function retryIn(seconds) {
+
+        window.setTimeout(function() {        
+            console.log('Getting BCH Price.');
+            getBCH_Price();
+        }, 1000 * seconds);
+    }
+
+    function onError() {
+        alert('BCH Money Button cannot determine current BCH price.  Trying again in a minute.');
+
+        retryIn(60);
+    }
 }

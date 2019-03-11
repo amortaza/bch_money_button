@@ -3,7 +3,7 @@
 
     "name": "BCH Button",
 
-    "version": "0.0.1",
+    "version": "1.1.0",
 
     "content_scripts": [
         {
@@ -38,5 +38,5 @@
         "default_title": "BCH is Money!"
     },
 
-    "permissions": ["tabs","storage"]
+    "permissions": ["tabs","notifications","storage"]
 }

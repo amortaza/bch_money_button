@@ -1,5 +1,5 @@
 var logTime = false;
-var timeout = 3000; // todo
+var timeout = 3000; 
 
 var last_length = 0;
 var last_addresses = {};
@@ -101,8 +101,6 @@ function pageChanged() {
     var html = document.body.innerHTML;
     var new_length = html.length;
     var length_changed = (last_length != new_length);
-
-    if (length_changed) console.log('changed length from ' + last_length + ' to ' + new_length);
 
     var new_addresses = {};    
     var address_changed = false;
