@@ -43,7 +43,7 @@ function onMessage( msg, sender, response ) {
 
     if (msg.type == 'load_wallet') {
         console.log('Background just received "load_wallet" message.');
-        reloadWallet();
+        reloadWallet(0);
     }
     else if (msg.type == 'send_bch') {
         var sats = parseFloat(msg.amount) * 100000000;
@@ -52,15 +52,23 @@ function onMessage( msg, sender, response ) {
 
         if (!confirm(confirm_msg)) return;
 
-        WALLET.send(msg.bch_address, sats, function() {
-            notify('Sent $' + dollars.toFixed(2) + ' to ' + msg.bch_address, msg.amount + ' BCH');
-            reloadWallet();
-        }, 
-        function(err) {
+        try {
+            WALLET.send(msg.bch_address, sats, function() {
+                notify('Sent $' + dollars.toFixed(2) + ' to ' + msg.bch_address, msg.amount + ' BCH');
+                reloadWallet(5);
+            }, 
+            function(err) {
+                var err2 = 'There was an error sending ' + msg.amount + ' BCH to ' + msg.bch_address + ', see "' + err + '".';
+                notify(err2);
+                alert(err2);
+            });
+        }
+        catch(e) {
+            reloadWallet(1);
             var err2 = 'There was an error sending ' + msg.amount + ' BCH to ' + msg.bch_address + ', see "' + err + '".';
             notify(err2);
             alert(err2);
-        });
+        }
     }
     else if (msg.type == 'get-bch-price') {
         response(BCH_PRICE);
@@ -73,7 +81,7 @@ function onMessage( msg, sender, response ) {
 function notify(line1, line2) {
 
     if (Notification.permission === "granted") {
-        new Notification(line1, {body: line2 || '', icon: 'img/bch.png'});
+        new Notification(line1, {body: line2 || '', icon: 'img/bch.png', renotify: true, tag:'-'});
     }
     else if (Notification.permission !== 'denied') {
 
@@ -82,6 +90,8 @@ function notify(line1, line2) {
             if (permission === "granted") 
                 new Notification(line1, {body: line2 || '', icon: 'img/bch.png'});
         });
+    } else {
+        alert('Please turn on notifications for Chrome to not get Alerts, but we have a message for you.\n' + line1 + '\n' + line2);
     }
 }
 
@@ -105,23 +115,25 @@ function loadWallet(words) {
     );
 }
 
-function reloadWallet() {
+function reloadWallet(delaySecs) {
 
     WALLET_LOAD_STATE = 'loading';
 
     console.log('Wallet load state is now "loading"');
 
-    // we have the words
-    WALLET.reload( 
-        function(first_change_utxo_index) {
-            WALLET_LOAD_STATE = 'loaded';
-            setWalletIndex(first_change_utxo_index);
-            console.log('Wallet load state is now "loaded"');
-        }, 
-        function(error) {
-            console.log('There was a problem loading the wallet.  See ' + e);
-        }
-    );
+    window.setTimeout( function() {
+        // we have the words
+        WALLET.reload( 
+            function(first_change_utxo_index) {
+                WALLET_LOAD_STATE = 'loaded';
+                setWalletIndex(first_change_utxo_index);
+                console.log('Wallet load state is now "loaded"');
+            }, 
+            function(error) {
+                console.log('There was a problem loading the wallet.  See ' + e);
+            }
+        );
+    }, delaySecs * 1000);
 }
 
 function setWalletIndex(index) {
@@ -179,3 +191,16 @@ function getBCH_Price() {
         retryIn(60);
     }
 }
+
+/*    chrome.notifications.create('reminder', {
+            type: 'basic',
+            iconUrl: 'img/bch.png',
+            title: 'Don\'t forget!',
+            requireInteraction: true,
+            message: 'You are awesome!',
+            buttons: [{title: 'yes'}, {title:'no'}]
+         }, function(notificationId) {});    */
+
+     /*Notification.requestPermission().then(function(result) {
+        console.log(result);
+    });*/
